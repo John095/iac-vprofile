@@ -60,7 +60,7 @@ jobs:
       - name: "Terraform Apply"
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         id: apply
-        run: terraform apply -input=false -auto-approve tfplan parallelism=1
+        run: terraform apply -input=false -auto-approve -parallelism=1 tfplan
 
       - name: "Configure AWS Credentials"
         uses: aws-actions/configure-aws-credentials@v2
